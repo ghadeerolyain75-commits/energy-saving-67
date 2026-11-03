@@ -14,7 +14,7 @@
 let stage=0,name='',cls='',game=0,answers=[],selected=null;const screen=document.getElementById('screen');const questions=[{q:'خرجنا من الفصل، ماذا نفعل بالأنوار غير الضرورية؟',a:['نطلب من المعلمة إطفاءها 💡','نتركها مضاءة 🌞'],correct:0},{q:'انتهينا من استخدام الحاسوب، ماذا نفعل؟',a:['نتركه يعمل دائمًا 💻','نطلب من المعلمة إغلاقه ✅'],correct:1},{q:'المكيف يعمل والباب مفتوح، ما الأفضل؟',a:['نغلق الباب بهدوء 🚪','نترك الباب مفتوحًا 🌬️'],correct:0}];
 function speak(s){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(s);u.lang='ar-SA';u.rate=.85;speechSynthesis.speak(u)}function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function setStage(n){stage=n;selected=null;document.getElementById('bar').style.width=(n/5*100)+'%';render()}
 // لا تفعّلي الإرسال قبل ضبط المصادقة والحد من الطلبات على الخادم.
-const ENERGY_REMOTE_SAVE_ENABLED = false;
+const ENERGY_REMOTE_SAVE_ENABLED = true;
 const ENERGY_SAVE_ENDPOINT = 'https://cjlwrnmccnknuyvwffgz.supabase.co/functions/v1/rapid-task';
 let energySavedThisRound = false;
 async function saveEnergyParticipation() {
